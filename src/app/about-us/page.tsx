@@ -192,8 +192,8 @@ const ScrollytellingSection = memo(function ScrollytellingSection() {
             </motion.div>
           </div>
 
-          <div className="flex items-center justify-center gap-4 mt-8">
-            {steps.map((_, index) => (
+            <div className="flex items-center justify-center gap-4 mt-8">
+            {SCROLLYTELLING_STEPS.map((_, index) => (
               <button
                 key={index}
                 onClick={() => {
