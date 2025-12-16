@@ -90,6 +90,10 @@ function CinematicHeroSection() {
 }
 
 function ScrollytellingSection() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const [progress, setProgress] = useState(0);
+
   const steps = [
     {
       number: "01",
@@ -114,6 +118,28 @@ function ScrollytellingSection() {
     },
   ];
 
+  useState(() => {
+    let interval: NodeJS.Timeout;
+    let progressInterval: NodeJS.Timeout;
+
+    if (!isPaused) {
+      progressInterval = setInterval(() => {
+        setProgress((prev) => {
+          if (prev >= 100) {
+            setActiveIndex((current) => (current + 1) % steps.length);
+            return 0;
+          }
+          return prev + 1;
+        });
+      }, 60);
+    }
+
+    return () => {
+      clearInterval(interval);
+      clearInterval(progressInterval);
+    };
+  });
+
   return (
     <section className="min-h-screen w-full bg-[#F4F4F9] flex items-center justify-center px-6 py-16 md:py-24">
       <div className="max-w-6xl mx-auto w-full">
@@ -131,38 +157,114 @@ function ScrollytellingSection() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
-          {steps.map((step, index) => (
-            <motion.article
-              key={step.title}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.15, duration: 0.6 }}
-              className="bg-white rounded-lg p-6 md:p-8 border-2 border-[#040F2D] hover:shadow-xl transition-shadow duration-300"
+        <div className="relative">
+          <div className="overflow-hidden">
+            <motion.div
+              className="flex transition-transform duration-700 ease-in-out"
+              style={{ transform: `translateX(-${activeIndex * 100}%)` }}
             >
-              <div className="flex items-center justify-between mb-4">
-                <span className="font-montserrat font-bold text-5xl md:text-6xl text-[#DFA236]/20">
-                  {step.number}
-                </span>
-                <span className="text-4xl md:text-5xl">
-                  {step.icon}
-                </span>
-              </div>
-              
-              <h3 className="font-montserrat font-extrabold text-xl md:text-2xl text-[#040F2D] mb-2">
-                {step.title}
-              </h3>
-              
-              <h4 className="font-inter font-semibold text-sm md:text-base text-[#DFA236] uppercase tracking-wide mb-4">
-                {step.subtitle}
-              </h4>
-              
-              <p className="font-inter text-sm md:text-base text-[#6D8299] leading-relaxed">
-                {step.description}
-              </p>
-            </motion.article>
-          ))}
+              {steps.map((step, index) => (
+                <motion.article
+                  key={step.title}
+                  className="w-full flex-shrink-0 px-4"
+                  onMouseEnter={() => setIsPaused(true)}
+                  onMouseLeave={() => setIsPaused(false)}
+                >
+                  <div className="bg-white rounded-lg p-8 md:p-12 border-2 border-[#040F2D] shadow-xl max-w-4xl mx-auto">
+                    <div className="flex items-center justify-between mb-6">
+                      <span className="font-montserrat font-bold text-6xl md:text-7xl text-[#DFA236]/20">
+                        {step.number}
+                      </span>
+                      <span className="text-5xl md:text-6xl">
+                        {step.icon}
+                      </span>
+                    </div>
+                    
+                    <h3 className="font-montserrat font-extrabold text-2xl md:text-4xl text-[#040F2D] mb-3">
+                      {step.title}
+                    </h3>
+                    
+                    <h4 className="font-inter font-semibold text-base md:text-lg text-[#DFA236] uppercase tracking-wide mb-6">
+                      {step.subtitle}
+                    </h4>
+                    
+                    <p className="font-inter text-base md:text-xl text-[#6D8299] leading-relaxed">
+                      {step.description}
+                    </p>
+                  </div>
+                </motion.article>
+              ))}
+            </motion.div>
+          </div>
+
+          <div className="flex items-center justify-center gap-4 mt-8">
+            {steps.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => {
+                  setActiveIndex(index);
+                  setProgress(0);
+                }}
+                className="group relative"
+                aria-label={`Go to slide ${index + 1}`}
+              >
+                <div className={`w-12 h-2 rounded-full transition-all duration-300 ${
+                  index === activeIndex ? "bg-[#DFA236]" : "bg-[#6D8299]/30"
+                }`}>
+                  {index === activeIndex && (
+                    <motion.div
+                      className="h-full bg-[#DFA236] rounded-full"
+                      style={{ width: `${progress}%` }}
+                    />
+                  )}
+                </div>
+              </button>
+            ))}
+          </div>
+
+          <div className="flex items-center justify-center mt-6 gap-4">
+            <button
+              onClick={() => {
+                setActiveIndex((prev) => (prev === 0 ? steps.length - 1 : prev - 1));
+                setProgress(0);
+              }}
+              className="p-3 rounded-full bg-[#040F2D] text-white hover:bg-[#DFA236] hover:text-[#040F2D] transition-all duration-300"
+              aria-label="Previous slide"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+
+            <button
+              onClick={() => setIsPaused(!isPaused)}
+              className="p-3 rounded-full bg-[#040F2D] text-white hover:bg-[#DFA236] hover:text-[#040F2D] transition-all duration-300"
+              aria-label={isPaused ? "Resume autoplay" : "Pause autoplay"}
+            >
+              {isPaused ? (
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              ) : (
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z" />
+                </svg>
+              )}
+            </button>
+
+            <button
+              onClick={() => {
+                setActiveIndex((prev) => (prev + 1) % steps.length);
+                setProgress(0);
+              }}
+              className="p-3 rounded-full bg-[#040F2D] text-white hover:bg-[#DFA236] hover:text-[#040F2D] transition-all duration-300"
+              aria-label="Next slide"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
     </section>
