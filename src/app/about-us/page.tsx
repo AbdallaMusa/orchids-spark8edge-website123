@@ -118,12 +118,11 @@ function ScrollytellingSection() {
     },
   ];
 
-  useState(() => {
-    let interval: NodeJS.Timeout;
-    let progressInterval: NodeJS.Timeout;
+  useState<NodeJS.Timeout | null>(null);
 
+  useState(() => {
     if (!isPaused) {
-      progressInterval = setInterval(() => {
+      const progressInterval = setInterval(() => {
         setProgress((prev) => {
           if (prev >= 100) {
             setActiveIndex((current) => (current + 1) % steps.length);
@@ -132,12 +131,9 @@ function ScrollytellingSection() {
           return prev + 1;
         });
       }, 60);
-    }
 
-    return () => {
-      clearInterval(interval);
-      clearInterval(progressInterval);
-    };
+      return () => clearInterval(progressInterval);
+    }
   });
 
   return (
