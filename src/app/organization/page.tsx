@@ -346,4 +346,160 @@ function ConsultationFormSection() {
     const email = emailInput?.value || "";
     
     if (!validateEmail(email)) {
-      setError("Please enter a valid ema
+      setError("Please enter a valid email address");
+      return;
+    }
+
+    if (!executeRecaptcha) {
+      setError("reCAPTCHA not available. Please try again.");
+      return;
+    }
+
+    try {
+      const token = await executeRecaptcha("organization_form");
+      
+      const formData = new FormData(form);
+      formData.append("recaptcha_token", token);
+      
+      await fetch("https://formspree.io/f/mnneyzqa", {
+        method: "POST",
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+      
+      setSubmitted(true);
+      form.reset();
+      
+      setTimeout(() => {
+        setSubmitted(false);
+      }, 3000);
+    } catch (error) {
+      console.error("Form submission error:", error);
+      setError("Submission failed. Please try again.");
+    }
+  };
+
+  return (
+    <section id="consultation-form" className="min-h-screen bg-[#040F2D] flex items-center justify-center px-4 py-20">
+      <div className="max-w-2xl mx-auto w-full">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-6"
+        >
+          <h2 className="font-montserrat font-extrabold text-3xl md:text-4xl text-white uppercase mb-3">
+            Initialize Partnership.
+          </h2>
+          <p className="font-inter text-sm text-gray-300 max-w-xl mx-auto">
+            Let's discuss how we can future-proof your narrative.
+          </p>
+        </motion.div>
+
+        <motion.form
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2 }}
+          onSubmit={handleSubmit}
+          className="bg-white p-6 rounded-2xl space-y-3 shadow-2xl"
+        >
+          <div>
+            <label htmlFor="company-name" className="block font-montserrat font-semibold text-xs uppercase tracking-wider text-[#040F2D] mb-1.5">
+              Company Name
+            </label>
+            <input
+              type="text"
+              id="company-name"
+              name="company-name"
+              required
+              className="w-full px-3 py-2 border-2 border-[#040F2D] rounded font-inter text-sm focus:outline-none focus:ring-2 focus:ring-[#DFA236]"
+            />
+          </div>
+
+          <div>
+            <label htmlFor="work-email" className="block font-montserrat font-semibold text-xs uppercase tracking-wider text-[#040F2D] mb-1.5">
+              Work Email
+            </label>
+            <input
+              type="email"
+              id="work-email"
+              name="work-email"
+              required
+              pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+              title="Please enter a valid work email address"
+              className="w-full px-3 py-2 border-2 border-[#040F2D] rounded font-inter text-sm focus:outline-none focus:ring-2 focus:ring-[#DFA236]"
+            />
+          </div>
+
+          <div>
+            <label htmlFor="objective" className="block font-montserrat font-semibold text-xs uppercase tracking-wider text-[#040F2D] mb-1.5">
+              Primary Objective
+            </label>
+            <select
+              id="objective"
+              name="objective"
+              required
+              className="w-full px-3 py-2 border-2 border-[#040F2D] rounded font-inter text-sm focus:outline-none focus:ring-2 focus:ring-[#DFA236]"
+            >
+              <option value="">Choose one</option>
+              <option value="Corporate PR">Corporate PR</option>
+              <option value="Crisis Management">Crisis Management</option>
+              <option value="Content Production">Content Production</option>
+              <option value="Hiring Talent">Hiring Talent</option>
+            </select>
+          </div>
+
+          <div>
+            <label htmlFor="message" className="block font-montserrat font-semibold text-xs uppercase tracking-wider text-[#040F2D] mb-1.5">
+              Project Details
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              rows={2}
+              placeholder="Briefly describe your challenge"
+              required
+              className="w-full px-3 py-2 border-2 border-[#040F2D] rounded font-inter text-sm focus:outline-none focus:ring-2 focus:ring-[#DFA236] resize-none"
+            />
+          </div>
+
+          <div className="text-center text-xs text-gray-500 font-inter">
+            This site is protected by reCAPTCHA and the Google{" "}
+            <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-[#DFA236] hover:underline">Privacy Policy</a> and{" "}
+            <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer" className="text-[#DFA236] hover:underline">Terms of Service</a> apply.
+          </div>
+
+          <button
+            type="submit"
+            className="w-full py-3 bg-[#DFA236] text-[#040F2D] font-montserrat font-semibold text-sm uppercase tracking-wider rounded-lg hover:bg-[#040F2D] hover:text-white transition-all duration-300 active:scale-95 shadow-lg"
+          >
+            Submit Brief
+          </button>
+
+          {error && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="mt-3 p-3 bg-red-100 border border-red-400 text-red-700 rounded-lg text-center font-inter text-sm"
+            >
+              {error}
+            </motion.div>
+          )}
+
+          {submitted && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="mt-3 p-3 bg-green-100 border border-green-400 text-green-700 rounded-lg text-center font-inter text-sm"
+            >
+              ✓ Brief submitted successfully!
+            </motion.div>
+          )}
+        </motion.form>
+      </div>
+    </section>
+  );
+}
