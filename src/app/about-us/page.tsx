@@ -25,25 +25,65 @@ export default function AboutUs() {
 function CinematicHeroSection() {
   return (
     <section
-      className="h-screen w-full flex items-center justify-center relative overflow-hidden"
+      className="min-h-screen w-full flex items-center justify-center relative overflow-hidden py-20 md:py-32"
       style={{
         backgroundImage: "url('https://images.unsplash.com/photo-1515378960530-7c0da6231fb1?q=80&w=2070')",
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
     >
-      <div className="absolute inset-0 bg-[#040F2D] opacity-80" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#040F2D] via-[#040F2D]/95 to-[#040F2D]/90" />
       
-      <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
+      <div className="relative z-10 text-center px-6 max-w-6xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6 }}
+          className="inline-block px-6 py-2 bg-[#DFA236]/10 border border-[#DFA236]/30 rounded-full mb-6 md:mb-8"
+        >
+          <span className="font-inter text-xs md:text-sm text-[#DFA236] uppercase tracking-widest font-semibold">
+            About Spark8Edge
+          </span>
+        </motion.div>
+
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="font-montserrat font-extrabold text-4xl md:text-5xl lg:text-6xl text-white uppercase leading-tight"
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="font-montserrat font-extrabold text-4xl md:text-6xl lg:text-7xl text-white mb-6 md:mb-8 leading-tight"
         >
-          The Bridge Between<br />
-          <span className="text-[#DFA236]">Talent & Opportunity.</span>
+          Connecting Youth Talent<br />
+          <span className="text-[#DFA236]">With Corporate Innovation</span>
         </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="font-inter text-base md:text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8 md:mb-12"
+        >
+          Spark8Edge bridges the gap between ambitious youth seeking tech careers and organizations needing fresh talent. We transform Nairobi&apos;s untapped potential into skilled professionals ready to drive business growth.
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="flex flex-wrap items-center justify-center gap-4 md:gap-8 text-sm md:text-base"
+        >
+          <div className="flex items-center gap-2 text-white">
+            <div className="w-2 h-2 bg-[#DFA236] rounded-full" />
+            <span className="font-inter">Youth Development Programs</span>
+          </div>
+          <div className="flex items-center gap-2 text-white">
+            <div className="w-2 h-2 bg-[#DFA236] rounded-full" />
+            <span className="font-inter">Corporate Training Solutions</span>
+          </div>
+          <div className="flex items-center gap-2 text-white">
+            <div className="w-2 h-2 bg-[#DFA236] rounded-full" />
+            <span className="font-inter">Talent Recruitment Services</span>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
