@@ -500,67 +500,91 @@ function PartnersSection() {
               </div>
             </div>
 
-            <div className="border-t border-white/10 pt-6">
-              <h4 className="font-montserrat font-bold text-lg md:text-xl text-white mb-4 text-center">
-                Comprehensive Curriculum Coverage
-              </h4>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                <div className="bg-white/5 rounded-lg p-3 border border-white/10 hover:border-[#DFA236]/50 transition-all">
-                  <div className="flex items-center gap-2 text-[#DFA236] justify-center">
-                    <div className="w-2 h-2 bg-[#DFA236] rounded-full" />
-                    <span className="font-inter font-semibold text-sm">Full-Stack Web Development</span>
+              <div className="border-t border-white/10 pt-6">
+                <h4 className="font-montserrat font-bold text-lg md:text-xl text-white mb-4 text-center">
+                  Comprehensive Curriculum Coverage
+                </h4>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                  <div className="bg-white/5 rounded-lg p-3 border border-white/10 hover:border-[#DFA236]/50 transition-all">
+                    <div className="flex items-center gap-2 text-[#DFA236] justify-center">
+                      <div className="w-2 h-2 bg-[#DFA236] rounded-full" />
+                      <span className="font-inter font-semibold text-sm">Full-Stack Web Development</span>
+                    </div>
                   </div>
-                </div>
-                <div className="bg-white/5 rounded-lg p-3 border border-white/10 hover:border-[#DFA236]/50 transition-all">
-                  <div className="flex items-center gap-2 text-[#DFA236] justify-center">
-                    <div className="w-2 h-2 bg-[#DFA236] rounded-full" />
-                    <span className="font-inter font-semibold text-sm">Cloud Infrastructure</span>
+                  <div className="bg-white/5 rounded-lg p-3 border border-white/10 hover:border-[#DFA236]/50 transition-all">
+                    <div className="flex items-center gap-2 text-[#DFA236] justify-center">
+                      <div className="w-2 h-2 bg-[#DFA236] rounded-full" />
+                      <span className="font-inter font-semibold text-sm">Cloud Infrastructure & DevOps</span>
+                    </div>
                   </div>
-                </div>
-                <div className="bg-white/5 rounded-lg p-3 border border-white/10 hover:border-[#DFA236]/50 transition-all">
-                  <div className="flex items-center gap-2 text-[#DFA236] justify-center">
-                    <div className="w-2 h-2 bg-[#DFA236] rounded-full" />
-                    <span className="font-inter font-semibold text-sm">Database Management</span>
+                  <div className="bg-white/5 rounded-lg p-3 border border-white/10 hover:border-[#DFA236]/50 transition-all">
+                    <div className="flex items-center gap-2 text-[#DFA236] justify-center">
+                      <div className="w-2 h-2 bg-[#DFA236] rounded-full" />
+                      <span className="font-inter font-semibold text-sm">Database Management & APIs</span>
+                    </div>
                   </div>
-                </div>
-                <div className="bg-white/5 rounded-lg p-3 border border-white/10 hover:border-[#DFA236]/50 transition-all">
-                  <div className="flex items-center gap-2 text-[#DFA236] justify-center">
-                    <div className="w-2 h-2 bg-[#DFA236] rounded-full" />
-                    <span className="font-inter font-semibold text-sm">AI & Automation</span>
+                  <div className="bg-white/5 rounded-lg p-3 border border-white/10 hover:border-[#DFA236]/50 transition-all">
+                    <div className="flex items-center gap-2 text-[#DFA236] justify-center">
+                      <div className="w-2 h-2 bg-[#DFA236] rounded-full" />
+                      <span className="font-inter font-semibold text-sm">AI & Prompt Engineering</span>
+                    </div>
                   </div>
-                </div>
-                <div className="bg-white/5 rounded-lg p-3 border border-white/10 hover:border-[#DFA236]/50 transition-all">
-                  <div className="flex items-center gap-2 text-[#DFA236] justify-center">
-                    <div className="w-2 h-2 bg-[#DFA236] rounded-full" />
-                    <span className="font-inter font-semibold text-sm">Video Production</span>
+                  <div className="bg-white/5 rounded-lg p-3 border border-white/10 hover:border-[#DFA236]/50 transition-all">
+                    <div className="flex items-center gap-2 text-[#DFA236] justify-center">
+                      <div className="w-2 h-2 bg-[#DFA236] rounded-full" />
+                      <span className="font-inter font-semibold text-sm">Video Production & Editing</span>
+                    </div>
                   </div>
-                </div>
-                <div className="bg-white/5 rounded-lg p-3 border border-white/10 hover:border-[#DFA236]/50 transition-all">
-                  <div className="flex items-center gap-2 text-[#DFA236] justify-center">
-                    <div className="w-2 h-2 bg-[#DFA236] rounded-full" />
-                    <span className="font-inter font-semibold text-sm">UI/UX Design</span>
+                  <div className="bg-white/5 rounded-lg p-3 border border-white/10 hover:border-[#DFA236]/50 transition-all">
+                    <div className="flex items-center gap-2 text-[#DFA236] justify-center">
+                      <div className="w-2 h-2 bg-[#DFA236] rounded-full" />
+                      <span className="font-inter font-semibold text-sm">UI/UX Design & Prototyping</span>
+                    </div>
                   </div>
-                </div>
-                <div className="bg-white/5 rounded-lg p-3 border border-white/10 hover:border-[#DFA236]/50 transition-all">
-                  <div className="flex items-center gap-2 text-[#DFA236] justify-center">
-                    <div className="w-2 h-2 bg-[#DFA236] rounded-full" />
-                    <span className="font-inter font-semibold text-sm">DevOps & Deployment</span>
+                  <div className="bg-white/5 rounded-lg p-3 border border-white/10 hover:border-[#DFA236]/50 transition-all">
+                    <div className="flex items-center gap-2 text-[#DFA236] justify-center">
+                      <div className="w-2 h-2 bg-[#DFA236] rounded-full" />
+                      <span className="font-inter font-semibold text-sm">Content Creation & Storytelling</span>
+                    </div>
                   </div>
-                </div>
-                <div className="bg-white/5 rounded-lg p-3 border border-white/10 hover:border-[#DFA236]/50 transition-all">
-                  <div className="flex items-center gap-2 text-[#DFA236] justify-center">
-                    <div className="w-2 h-2 bg-[#DFA236] rounded-full" />
-                    <span className="font-inter font-semibold text-sm">Version Control</span>
+                  <div className="bg-white/5 rounded-lg p-3 border border-white/10 hover:border-[#DFA236]/50 transition-all">
+                    <div className="flex items-center gap-2 text-[#DFA236] justify-center">
+                      <div className="w-2 h-2 bg-[#DFA236] rounded-full" />
+                      <span className="font-inter font-semibold text-sm">Digital Marketing & SEO</span>
+                    </div>
+                  </div>
+                  <div className="bg-white/5 rounded-lg p-3 border border-white/10 hover:border-[#DFA236]/50 transition-all">
+                    <div className="flex items-center gap-2 text-[#DFA236] justify-center">
+                      <div className="w-2 h-2 bg-[#DFA236] rounded-full" />
+                      <span className="font-inter font-semibold text-sm">Motion Graphics & Animation</span>
+                    </div>
+                  </div>
+                  <div className="bg-white/5 rounded-lg p-3 border border-white/10 hover:border-[#DFA236]/50 transition-all">
+                    <div className="flex items-center gap-2 text-[#DFA236] justify-center">
+                      <div className="w-2 h-2 bg-[#DFA236] rounded-full" />
+                      <span className="font-inter font-semibold text-sm">Project Management & Agile</span>
+                    </div>
+                  </div>
+                  <div className="bg-white/5 rounded-lg p-3 border border-white/10 hover:border-[#DFA236]/50 transition-all">
+                    <div className="flex items-center gap-2 text-[#DFA236] justify-center">
+                      <div className="w-2 h-2 bg-[#DFA236] rounded-full" />
+                      <span className="font-inter font-semibold text-sm">Data Analysis & Visualization</span>
+                    </div>
+                  </div>
+                  <div className="bg-white/5 rounded-lg p-3 border border-white/10 hover:border-[#DFA236]/50 transition-all">
+                    <div className="flex items-center gap-2 text-[#DFA236] justify-center">
+                      <div className="w-2 h-2 bg-[#DFA236] rounded-full" />
+                      <span className="font-inter font-semibold text-sm">Brand Strategy & Identity</span>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            <div className="mt-8 text-center">
-              <p className="font-inter text-sm md:text-base text-gray-400 italic">
-                Technologies include: React, Next.js, TypeScript, Node.js, Python, TailwindCSS, PostgreSQL, MongoDB, Supabase, AWS, Docker, Git, Figma, DaVinci Resolve, and AI Prompt Engineering
-              </p>
-            </div>
+              <div className="mt-8 text-center">
+                <p className="font-inter text-sm md:text-base text-gray-400 italic">
+                  Technologies include: React, Next.js, TypeScript, Node.js, Python, TailwindCSS, PostgreSQL, MongoDB, Supabase, AWS, Docker, Git, Figma, DaVinci Resolve, AI Prompt Engineering, Adobe Creative Suite, Google Analytics, SEO Tools, and Business Intelligence platforms
+                </p>
+              </div>
           </motion.div>
       </div>
     </section>
