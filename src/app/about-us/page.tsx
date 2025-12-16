@@ -249,7 +249,7 @@ const ScrollytellingSection = memo(function ScrollytellingSection() {
 
             <button
               onClick={() => {
-                setActiveIndex((prev) => (prev + 1) % steps.length);
+                setActiveIndex((prev) => (prev + 1) % SCROLLYTELLING_STEPS.length);
                 setProgress(0);
               }}
               className="p-3 rounded-full bg-[#040F2D] text-white hover:bg-[#DFA236] hover:text-[#040F2D] transition-all duration-300"
