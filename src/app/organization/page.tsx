@@ -428,6 +428,8 @@ function ConsultationFormSection() {
               id="work-email"
               name="work-email"
               required
+              pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+              title="Please enter a valid work email address"
               className="w-full px-3 py-2 border-2 border-[#040F2D] rounded font-inter text-sm focus:outline-none focus:ring-2 focus:ring-[#DFA236]"
             />
           </div>
