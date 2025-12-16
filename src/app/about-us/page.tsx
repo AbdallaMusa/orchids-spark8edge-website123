@@ -118,9 +118,7 @@ function ScrollytellingSection() {
     },
   ];
 
-  useState<NodeJS.Timeout | null>(null);
-
-  useState(() => {
+  useEffect(() => {
     if (!isPaused) {
       const progressInterval = setInterval(() => {
         setProgress((prev) => {
@@ -134,7 +132,7 @@ function ScrollytellingSection() {
 
       return () => clearInterval(progressInterval);
     }
-  });
+  }, [isPaused, steps.length]);
 
   return (
     <section className="min-h-screen w-full bg-[#F4F4F9] flex items-center justify-center px-6 py-16 md:py-24">
