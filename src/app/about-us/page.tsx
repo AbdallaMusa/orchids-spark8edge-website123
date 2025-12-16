@@ -433,7 +433,7 @@ const PartnersSection = memo(function PartnersSection() {
       const progressInterval = setInterval(() => {
         setProgress((prev) => {
           if (prev >= 100) {
-            setActiveIndex((current) => (current + 1) % technologies.length);
+            setActiveIndex((current) => (current + 1) % TECHNOLOGIES_DATA.length);
             return 0;
           }
           return prev + 1;
@@ -442,7 +442,7 @@ const PartnersSection = memo(function PartnersSection() {
 
       return () => clearInterval(progressInterval);
     }
-  }, [isPaused, technologies.length]);
+  }, [isPaused]);
 
   return (
     <section className="min-h-screen w-full bg-gradient-to-br from-[#040F2D] via-[#040F2D] to-[#0A1A3F] flex items-center justify-center px-6 py-16 md:py-24 overflow-hidden">
