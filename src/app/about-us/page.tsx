@@ -220,7 +220,7 @@ const ScrollytellingSection = memo(function ScrollytellingSection() {
           <div className="flex items-center justify-center mt-6 gap-4">
             <button
               onClick={() => {
-                setActiveIndex((prev) => (prev === 0 ? steps.length - 1 : prev - 1));
+                setActiveIndex((prev) => (prev === 0 ? SCROLLYTELLING_STEPS.length - 1 : prev - 1));
                 setProgress(0);
               }}
               className="p-3 rounded-full bg-[#040F2D] text-white hover:bg-[#DFA236] hover:text-[#040F2D] transition-all duration-300"
