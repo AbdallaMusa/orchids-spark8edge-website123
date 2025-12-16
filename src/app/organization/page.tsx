@@ -329,14 +329,38 @@ function CaseStudiesSection() {
 
 function ConsultationFormSection() {
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState("");
+  const { executeRecaptcha } = useGoogleReCaptcha();
+
+  const validateEmail = (email: string) => {
+    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return emailRegex.test(email);
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setError("");
     const form = e.currentTarget;
     
-    const formData = new FormData(form);
+    const emailInput = form.querySelector<HTMLInputElement>("#work-email");
+    const email = emailInput?.value || "";
     
+    if (!validateEmail(email)) {
+      setError("Please enter a valid email address");
+      return;
+    }
+
+    if (!executeRecaptcha) {
+      setError("reCAPTCHA not available. Please try again.");
+      return;
+    }
+
     try {
+      const token = await executeRecaptcha("organization_form");
+      
+      const formData = new FormData(form);
+      formData.append("recaptcha_token", token);
+      
       await fetch("https://formspree.io/f/mnneyzqa", {
         method: "POST",
         body: formData,
@@ -353,6 +377,7 @@ function ConsultationFormSection() {
       }, 3000);
     } catch (error) {
       console.error("Form submission error:", error);
+      setError("Submission failed. Please try again.");
     }
   };
 
