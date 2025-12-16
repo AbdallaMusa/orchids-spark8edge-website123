@@ -5,6 +5,7 @@ import { VisualEditsMessenger } from "orchids-visual-edits";
 import ErrorReporter from "@/components/ErrorReporter";
 import Script from "next/script";
 import GoogleReCaptchaWrapper from "@/components/GoogleReCaptchaWrapper";
+import { Analytics } from "@vercel/analytics/next";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -58,6 +59,7 @@ export default function RootLayout({
           {children}
         </GoogleReCaptchaWrapper>
         <VisualEditsMessenger />
+        <Analytics />
       </body>
     </html>
   );
