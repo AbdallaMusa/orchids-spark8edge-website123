@@ -264,9 +264,9 @@ const ScrollytellingSection = memo(function ScrollytellingSection() {
       </div>
     </section>
   );
-}
+});
 
-function ArchitectsSection() {
+const ArchitectsSection = memo(function ArchitectsSection() {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
