@@ -21,7 +21,8 @@ export const metadata: Metadata = {
   title: "SPARK8EDGE",
   description: "Spark8Edge connects Africa's creative talent with global opportunities through elite training and AI-powered corporate communications.",
   icons: {
-    icon: "/favicon.ico",
+    icon: "/icon.png",
+    apple: "/icon.png",
   },
 };
 
