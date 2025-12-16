@@ -296,14 +296,17 @@ const ArchitectsSection = memo(function ArchitectsSection() {
             onMouseLeave={() => setIsHovered(false)}
             className="relative group"
           >
-            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden border-4 border-[#040F2D] shadow-2xl">
-              <img
-                src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/Founder-1765872472689.jpg?width=8000&height=8000&resize=contain"
-                alt="Vanessa Mwando - Founder and CEO of Spark8Edge, youth empowerment and corporate training expert"
-                className={`w-full h-full object-cover transition-all duration-700 ${
-                  isHovered ? "scale-105" : "scale-100"
-                }`}
-              />
+              <div className="relative aspect-[4/5] rounded-2xl overflow-hidden border-4 border-[#040F2D] shadow-2xl">
+                <Image
+                  src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/Founder-1765872472689.jpg?width=800&height=1000&resize=contain"
+                  alt="Vanessa Mwando - Founder and CEO of Spark8Edge, youth empowerment and corporate training expert"
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                  className={`object-cover transition-all duration-700 ${
+                    isHovered ? "scale-105" : "scale-100"
+                  }`}
+                  loading="lazy"
+                />
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: isHovered ? 1 : 0 }}
