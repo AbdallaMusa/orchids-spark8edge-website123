@@ -1013,14 +1013,20 @@ function IntakeFormSection() {
             />
           </div>
 
-          <button
-            type="submit"
-            className="w-full py-3 bg-[#DFA236] text-[#040F2D] font-montserrat font-semibold text-sm uppercase tracking-wider rounded-lg hover:bg-[#040F2D] hover:text-white transition-all duration-300 active:scale-95 shadow-lg"
-          >
-            Submit Profile
-          </button>
+            <div className="text-center text-xs text-gray-500 font-inter">
+              This site is protected by reCAPTCHA and the Google{" "}
+              <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-[#DFA236] hover:underline">Privacy Policy</a> and{" "}
+              <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer" className="text-[#DFA236] hover:underline">Terms of Service</a> apply.
+            </div>
 
-            {error && (
+            <button
+              type="submit"
+              className="w-full py-3 bg-[#DFA236] text-[#040F2D] font-montserrat font-semibold text-sm uppercase tracking-wider rounded-lg hover:bg-[#040F2D] hover:text-white transition-all duration-300 active:scale-95 shadow-lg"
+            >
+              Submit Profile
+            </button>
+
+              {error && (
               <motion.div
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
