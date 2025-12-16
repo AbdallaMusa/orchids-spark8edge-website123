@@ -568,33 +568,46 @@ function PartnersSection() {
           </div>
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="bg-[#DFA236]/10 border-2 border-[#DFA236]/30 rounded-xl p-8 md:p-10 text-center"
-        >
-          <h3 className="font-montserrat font-bold text-2xl md:text-3xl text-white mb-4">
-            Building Future-Ready Professionals
-          </h3>
-          <p className="font-inter text-base md:text-lg text-gray-300 max-w-4xl mx-auto mb-6">
-            Our youth training programs focus on practical, hands-on experience with enterprise-grade technologies. Organizations partnering with Spark8Edge gain access to professionals trained in the exact tools and frameworks they use daily, reducing onboarding time and accelerating productivity.
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6 text-sm md:text-base">
-            <div className="flex items-center gap-2 text-[#DFA236]">
-              <div className="w-2 h-2 bg-[#DFA236] rounded-full" />
-              <span className="font-inter font-semibold">Industry-Standard Tools</span>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-[#DFA236]/10 border-2 border-[#DFA236]/30 rounded-xl p-8 md:p-10 text-center"
+          >
+            <h3 className="font-montserrat font-bold text-2xl md:text-3xl text-white mb-4">
+              Building Future-Ready Professionals
+            </h3>
+            <p className="font-inter text-base md:text-lg text-gray-300 max-w-4xl mx-auto mb-6">
+              <strong className="text-white">Youth Hub</strong>: 12-week intensive cohorts covering full-stack web development (React, Next.js, TypeScript), backend systems (Node.js, Python, PostgreSQL, MongoDB), cloud infrastructure (AWS, Docker, Supabase), video production (DaVinci Resolve), AI automation (Prompt Engineering), and design (Figma). Graduates build 3-5 portfolio projects and receive career launch support.<br/><br/>
+              <strong className="text-white">Organizations</strong>: Hire job-ready professionals trained in your exact technology stack. Reduce onboarding costs by 40%, accelerate time-to-productivity with candidates who've completed real-world projects, and tap into a continuous talent pipeline aligned with modern development practices.
+            </p>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-4xl mx-auto text-sm md:text-base">
+              <div className="bg-white/5 rounded-lg p-3 border border-white/10">
+                <div className="flex items-center gap-2 text-[#DFA236] justify-center">
+                  <div className="w-2 h-2 bg-[#DFA236] rounded-full" />
+                  <span className="font-inter font-semibold">Full-Stack Development</span>
+                </div>
+              </div>
+              <div className="bg-white/5 rounded-lg p-3 border border-white/10">
+                <div className="flex items-center gap-2 text-[#DFA236] justify-center">
+                  <div className="w-2 h-2 bg-[#DFA236] rounded-full" />
+                  <span className="font-inter font-semibold">Cloud Infrastructure</span>
+                </div>
+              </div>
+              <div className="bg-white/5 rounded-lg p-3 border border-white/10">
+                <div className="flex items-center gap-2 text-[#DFA236] justify-center">
+                  <div className="w-2 h-2 bg-[#DFA236] rounded-full" />
+                  <span className="font-inter font-semibold">Video Production</span>
+                </div>
+              </div>
+              <div className="bg-white/5 rounded-lg p-3 border border-white/10">
+                <div className="flex items-center gap-2 text-[#DFA236] justify-center">
+                  <div className="w-2 h-2 bg-[#DFA236] rounded-full" />
+                  <span className="font-inter font-semibold">AI Automation</span>
+                </div>
+              </div>
             </div>
-            <div className="flex items-center gap-2 text-[#DFA236]">
-              <div className="w-2 h-2 bg-[#DFA236] rounded-full" />
-              <span className="font-inter font-semibold">Real-World Projects</span>
-            </div>
-            <div className="flex items-center gap-2 text-[#DFA236]">
-              <div className="w-2 h-2 bg-[#DFA236] rounded-full" />
-              <span className="font-inter font-semibold">Certification Ready</span>
-            </div>
-          </div>
-        </motion.div>
+          </motion.div>
       </div>
     </section>
   );
