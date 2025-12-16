@@ -170,77 +170,119 @@ function ScrollytellingSection() {
 }
 
 function ArchitectsSection() {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-
-  const team = [
-    {
-      name: "Vanessa",
-      role: "Founder & CEO",
-      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=400",
-    },
-    {
-      name: "Kennedy",
-      role: "Head of Strategy",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=400",
-    },
-    {
-      name: "Helga",
-      role: "Creative Director",
-      image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=400",
-    },
-    {
-      name: "Ivan",
-      role: "Tech Lead",
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=400",
-    },
-  ];
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <section className="h-screen w-full bg-white flex items-center justify-center px-6 overflow-hidden">
-      <div className="max-w-6xl mx-auto w-full">
+    <section className="min-h-screen w-full bg-white flex items-center justify-center px-6 py-16 md:py-24">
+      <div className="max-w-7xl mx-auto w-full">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-8 md:mb-12"
+          className="text-center mb-12 md:mb-16"
         >
-          <h2 className="font-montserrat font-extrabold text-3xl md:text-4xl lg:text-5xl text-[#040F2D] uppercase">
-            Meet The Architects.
+          <h2 className="font-montserrat font-extrabold text-3xl md:text-4xl lg:text-5xl text-[#040F2D] mb-4">
+            Meet Our Founder & CEO
           </h2>
+          <p className="font-inter text-base md:text-lg text-[#6D8299] max-w-3xl mx-auto">
+            Driving social impact through innovative youth empowerment and corporate partnership solutions
+          </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
-          {team.map((member, index) => (
-            <motion.div
-              key={member.name}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1, duration: 0.5 }}
-              onMouseEnter={() => setHoveredIndex(index)}
-              onMouseLeave={() => setHoveredIndex(null)}
-              className="group cursor-pointer"
-            >
-              <div className="relative aspect-square rounded-lg overflow-hidden mb-3 md:mb-4 border-4 border-[#040F2D]">
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className={`w-full h-full object-cover transition-all duration-500 ${
-                    hoveredIndex === index ? "grayscale-0 scale-110" : "grayscale"
-                  }`}
-                />
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: hoveredIndex === index ? 1 : 0 }}
-                  className="absolute inset-0 bg-[#DFA236] bg-opacity-20"
-                />
-              </div>
-              <h3 className="font-montserrat font-bold text-base md:text-lg lg:text-xl text-[#040F2D] uppercase">
-                {member.name}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+            className="relative group"
+          >
+            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden border-4 border-[#040F2D] shadow-2xl">
+              <img
+                src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/Founder-1765872472689.jpg?width=8000&height=8000&resize=contain"
+                alt="Vanessa Mwando - Founder and CEO of Spark8Edge, youth empowerment and corporate training expert"
+                className={`w-full h-full object-cover transition-all duration-700 ${
+                  isHovered ? "scale-105" : "scale-100"
+                }`}
+              />
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: isHovered ? 1 : 0 }}
+                className="absolute inset-0 bg-gradient-to-t from-[#040F2D]/80 via-[#040F2D]/20 to-transparent"
+              />
+            </div>
+            
+            <div className="absolute bottom-6 left-6 right-6 z-10">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: isHovered ? 1 : 0, y: isHovered ? 0 : 20 }}
+                transition={{ duration: 0.4 }}
+              >
+                <h3 className="font-montserrat font-bold text-2xl md:text-3xl text-white mb-1">
+                  Vanessa Mwando
+                </h3>
+                <p className="font-inter text-sm md:text-base text-[#DFA236] font-semibold">
+                  Founder & Chief Executive Officer
+                </p>
+              </motion.div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="space-y-6"
+          >
+            <div>
+              <h3 className="font-montserrat font-bold text-2xl md:text-3xl text-[#040F2D] mb-4">
+                Transforming Youth Unemployment Into Corporate Innovation
               </h3>
-              <p className="font-inter text-xs md:text-sm text-[#6D8299]">{member.role}</p>
-            </motion.div>
-          ))}
+              <p className="font-inter text-base md:text-lg text-[#6D8299] leading-relaxed mb-4">
+                Vanessa Mwando founded Spark8Edge with a clear mission: bridge the critical gap between Nairobi&apos;s unemployed youth and corporations seeking innovative talent. Witnessing 60% youth unemployment alongside unfilled technical positions, she recognized an opportunity to create dual impact.
+              </p>
+              <p className="font-inter text-base md:text-lg text-[#6D8299] leading-relaxed">
+                Her vision transforms talented but overlooked youth into job-ready professionals while providing organizations with a continuous pipeline of skilled, motivated team members who drive business growth and bring fresh perspectives to corporate innovation.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="bg-[#F4F4F9] rounded-lg p-6 border-l-4 border-[#DFA236]">
+                <h4 className="font-montserrat font-bold text-lg text-[#040F2D] mb-2">
+                  For Youth
+                </h4>
+                <p className="font-inter text-sm text-[#6D8299]">
+                  Free technical training, mentorship programs, and direct pathways to employment with leading organizations seeking diverse talent.
+                </p>
+              </div>
+
+              <div className="bg-[#F4F4F9] rounded-lg p-6 border-l-4 border-[#040F2D]">
+                <h4 className="font-montserrat font-bold text-lg text-[#040F2D] mb-2">
+                  For Organizations
+                </h4>
+                <p className="font-inter text-sm text-[#6D8299]">
+                  Access to pre-vetted, trained talent pools, custom training solutions, and innovation lab partnerships that reduce hiring costs.
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-[#DFA236]/10 rounded-lg p-6 border-2 border-[#DFA236]/30">
+              <div className="flex items-start gap-3">
+                <span className="text-3xl">💡</span>
+                <div>
+                  <h4 className="font-montserrat font-bold text-base md:text-lg text-[#040F2D] mb-2">
+                    Core Philosophy
+                  </h4>
+                  <p className="font-inter text-sm md:text-base text-[#040F2D] italic">
+                    &quot;Every unemployed youth represents untapped potential. Every organization seeking innovation represents opportunity. Spark8Edge is the catalyst that transforms both into success stories.&quot;
+                  </p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
