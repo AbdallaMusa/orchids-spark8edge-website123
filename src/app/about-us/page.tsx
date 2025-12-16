@@ -92,47 +92,76 @@ function CinematicHeroSection() {
 function ScrollytellingSection() {
   const steps = [
     {
-      title: "The Flaw.",
-      description: "60% of Nairobi's youth are unemployed, yet tech roles go unfilled.",
+      number: "01",
+      title: "The Challenge",
+      subtitle: "Youth Unemployment Crisis",
+      description: "Despite 60% youth unemployment in Nairobi, technology companies struggle to fill critical technical positions. This talent gap represents both a social challenge and a business opportunity.",
+      icon: "⚠️",
     },
     {
-      title: "The Friction.",
-      description: "Corporations are desperate for innovation but can't speak the language of the youth.",
+      number: "02",
+      title: "The Barrier",
+      subtitle: "Communication Disconnect",
+      description: "Organizations seek innovative talent but lack effective channels to reach, engage, and develop young professionals. Traditional recruitment methods fail to bridge this generational divide.",
+      icon: "🔌",
     },
     {
-      title: "The Spark.",
-      description: "Spark8Edge was born to fix both. We treat our youth hub as the R&D lab for our corporate clients.",
+      number: "03",
+      title: "Our Solution",
+      subtitle: "Dual-Impact Model",
+      description: "Spark8Edge transforms unemployed youth into skilled professionals while providing corporations with a pipeline of job-ready talent. Our training hub serves as an innovation laboratory for enterprise clients.",
+      icon: "⚡",
     },
   ];
 
   return (
-    <section className="h-screen w-full bg-[#F4F4F9] flex items-center justify-center px-6 overflow-hidden">
-      <div className="max-w-5xl mx-auto w-full">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+    <section className="min-h-screen w-full bg-[#F4F4F9] flex items-center justify-center px-6 py-16 md:py-24">
+      <div className="max-w-6xl mx-auto w-full">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-12 md:mb-16"
+        >
+          <h2 className="font-montserrat font-extrabold text-3xl md:text-4xl lg:text-5xl text-[#040F2D] mb-4">
+            How Spark8Edge Works
+          </h2>
+          <p className="font-inter text-base md:text-lg text-[#6D8299] max-w-3xl mx-auto">
+            Bridging the talent gap through strategic youth development and corporate partnerships
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
           {steps.map((step, index) => (
-            <motion.div
+            <motion.article
               key={step.title}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.2, duration: 0.6 }}
-              className="text-center"
+              transition={{ delay: index * 0.15, duration: 0.6 }}
+              className="bg-white rounded-lg p-6 md:p-8 border-2 border-[#040F2D] hover:shadow-xl transition-shadow duration-300"
             >
-              <div className="inline-block px-4 py-2 md:px-6 md:py-3 bg-[#DFA236] rounded mb-3 md:mb-4">
-                <span className="font-montserrat font-bold text-lg md:text-xl lg:text-2xl text-[#040F2D] uppercase">
-                  Step {index + 1}
+              <div className="flex items-center justify-between mb-4">
+                <span className="font-montserrat font-bold text-5xl md:text-6xl text-[#DFA236]/20">
+                  {step.number}
+                </span>
+                <span className="text-4xl md:text-5xl">
+                  {step.icon}
                 </span>
               </div>
-              <h3 className="font-montserrat font-extrabold text-2xl md:text-3xl lg:text-4xl text-[#040F2D] uppercase mb-3 md:mb-4">
+              
+              <h3 className="font-montserrat font-extrabold text-xl md:text-2xl text-[#040F2D] mb-2">
                 {step.title}
               </h3>
-              <p className="font-inter text-sm md:text-base lg:text-lg text-[#6D8299] leading-relaxed">
+              
+              <h4 className="font-inter font-semibold text-sm md:text-base text-[#DFA236] uppercase tracking-wide mb-4">
+                {step.subtitle}
+              </h4>
+              
+              <p className="font-inter text-sm md:text-base text-[#6D8299] leading-relaxed">
                 {step.description}
               </p>
-              <div className="mt-4 md:mt-6 text-4xl md:text-5xl lg:text-6xl">
-                {index === 0 ? "⚠️" : index === 1 ? "🔌" : "⚡"}
-              </div>
-            </motion.div>
+            </motion.article>
           ))}
         </div>
       </div>
