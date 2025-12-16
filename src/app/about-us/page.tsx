@@ -434,162 +434,132 @@ function PartnersSection() {
             viewport={{ once: true }}
             className="text-center mb-12 md:mb-16"
           >
-            <h2 className="font-montserrat font-extrabold text-3xl md:text-4xl lg:text-5xl text-white mb-4">
-              Comprehensive Technology Curriculum
+            <h2 className="font-montserrat font-extrabold text-3xl md:text-4xl lg:text-5xl text-white mb-6">
+              Enterprise-Grade Technology Training
             </h2>
-            <p className="font-inter text-base md:text-lg text-gray-300 max-w-4xl mx-auto mb-8 md:mb-12">
-              <strong className="text-[#DFA236]">Youth Hub Cohorts</strong> master full-stack development, AI automation, and creative production through 12-week intensive programs. 
-              <strong className="text-white"> Organizations</strong> benefit from professionals trained in modern web frameworks, cloud infrastructure, database management, video production, and AI-powered workflows—ready to deliver impact from day one with reduced onboarding costs.
+            <p className="font-inter text-base md:text-lg text-gray-300 max-w-5xl mx-auto leading-relaxed">
+              Spark8Edge delivers comprehensive technical education through <strong className="text-[#DFA236]">12-week Youth Hub cohorts</strong> and <strong className="text-[#DFA236]">customized corporate training programs</strong>. Youth participants master full-stack development (React, Next.js, TypeScript), backend systems (Node.js, Python, PostgreSQL, MongoDB), cloud infrastructure (AWS, Docker, Supabase), video production (DaVinci Resolve), AI automation (Prompt Engineering), and professional design (Figma) while building 3-5 portfolio projects.
             </p>
           </motion.div>
-
-        <div className="relative mb-12 md:mb-16">
-          <div className="overflow-hidden">
-            <motion.div
-              className="flex transition-transform duration-700 ease-in-out"
-              style={{ transform: `translateX(-${activeIndex * 100}%)` }}
-            >
-              {technologies.map((tech, index) => (
-                <motion.div
-                  key={tech.name}
-                  className="w-full flex-shrink-0 px-4"
-                  onMouseEnter={() => setIsPaused(true)}
-                  onMouseLeave={() => setIsPaused(false)}
-                >
-                  <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-10 md:p-14 border-2 border-[#DFA236]/30 hover:border-[#DFA236] hover:bg-white/10 transition-all duration-500 max-w-4xl mx-auto">
-                    <div className="text-center">
-                      <div className="inline-flex items-center justify-center w-20 h-20 md:w-24 md:h-24 bg-[#DFA236]/20 rounded-full mb-6">
-                        <div className="w-3 h-3 bg-[#DFA236] rounded-full animate-pulse" />
-                      </div>
-                      
-                      <h3 className="font-montserrat font-extrabold text-3xl md:text-4xl lg:text-5xl text-white mb-3">
-                        {tech.name}
-                      </h3>
-                      
-                      <p className="font-inter text-sm md:text-base text-[#DFA236] uppercase tracking-widest font-semibold mb-4">
-                        {tech.category}
-                      </p>
-
-                      <p className="font-inter text-base md:text-lg text-gray-300 leading-relaxed mb-8 max-w-2xl mx-auto">
-                        {tech.description}
-                      </p>
-                      
-
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
-
-          <div className="flex items-center justify-center gap-2 mt-8 flex-wrap">
-            {technologies.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => {
-                  setActiveIndex(index);
-                  setProgress(0);
-                }}
-                className="group relative"
-                aria-label={`Go to technology ${index + 1}`}
-              >
-                <div className={`w-10 h-2 rounded-full transition-all duration-300 ${
-                  index === activeIndex ? "bg-[#DFA236]" : "bg-white/20"
-                }`}>
-                  {index === activeIndex && (
-                    <motion.div
-                      className="h-full bg-[#DFA236] rounded-full"
-                      style={{ width: `${progress}%` }}
-                    />
-                  )}
-                </div>
-              </button>
-            ))}
-          </div>
-
-          <div className="flex items-center justify-center mt-6 gap-4">
-            <button
-              onClick={() => {
-                setActiveIndex((prev) => (prev === 0 ? technologies.length - 1 : prev - 1));
-                setProgress(0);
-              }}
-              className="p-3 rounded-full bg-white/10 text-white hover:bg-[#DFA236] hover:text-[#040F2D] transition-all duration-300"
-              aria-label="Previous technology"
-            >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-            </button>
-
-            <button
-              onClick={() => setIsPaused(!isPaused)}
-              className="p-3 rounded-full bg-white/10 text-white hover:bg-[#DFA236] hover:text-[#040F2D] transition-all duration-300"
-              aria-label={isPaused ? "Resume autoplay" : "Pause autoplay"}
-            >
-              {isPaused ? (
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M8 5v14l11-7z" />
-                </svg>
-              ) : (
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z" />
-                </svg>
-              )}
-            </button>
-
-            <button
-              onClick={() => {
-                setActiveIndex((prev) => (prev + 1) % technologies.length);
-                setProgress(0);
-              }}
-              className="p-3 rounded-full bg-white/10 text-white hover:bg-[#DFA236] hover:text-[#040F2D] transition-all duration-300"
-              aria-label="Next technology"
-            >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
-          </div>
-        </div>
 
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-[#DFA236]/10 border-2 border-[#DFA236]/30 rounded-xl p-8 md:p-10 text-center"
+            className="bg-gradient-to-r from-[#DFA236]/10 via-white/5 to-[#DFA236]/10 border-2 border-[#DFA236]/30 rounded-xl p-8 md:p-12 max-w-5xl mx-auto"
           >
-            <h3 className="font-montserrat font-bold text-2xl md:text-3xl text-white mb-4">
-              Building Future-Ready Professionals
-            </h3>
-            <p className="font-inter text-base md:text-lg text-gray-300 max-w-4xl mx-auto mb-6">
-              <strong className="text-white">Youth Hub</strong>: 12-week intensive cohorts covering full-stack web development (React, Next.js, TypeScript), backend systems (Node.js, Python, PostgreSQL, MongoDB), cloud infrastructure (AWS, Docker, Supabase), video production (DaVinci Resolve), AI automation (Prompt Engineering), and design (Figma). Graduates build 3-5 portfolio projects and receive career launch support.<br/><br/>
-              <strong className="text-white">Organizations</strong>: Hire job-ready professionals trained in your exact technology stack. Reduce onboarding costs by 40%, accelerate time-to-productivity with candidates who've completed real-world projects, and tap into a continuous talent pipeline aligned with modern development practices.
-            </p>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-4xl mx-auto text-sm md:text-base">
-              <div className="bg-white/5 rounded-lg p-3 border border-white/10">
-                <div className="flex items-center gap-2 text-[#DFA236] justify-center">
-                  <div className="w-2 h-2 bg-[#DFA236] rounded-full" />
-                  <span className="font-inter font-semibold">Full-Stack Development</span>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+              <div>
+                <h3 className="font-montserrat font-bold text-xl md:text-2xl text-[#DFA236] mb-4 flex items-center gap-3">
+                  <span className="text-2xl">🎓</span>
+                  Youth Hub Benefits
+                </h3>
+                <ul className="space-y-3 text-gray-300 font-inter text-sm md:text-base">
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-[#DFA236] rounded-full mt-2 flex-shrink-0" />
+                    <span>Free intensive training with industry-standard tools and frameworks</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-[#DFA236] rounded-full mt-2 flex-shrink-0" />
+                    <span>Hands-on project experience building real-world applications</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-[#DFA236] rounded-full mt-2 flex-shrink-0" />
+                    <span>Career launch support and direct pathways to employment</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-[#DFA236] rounded-full mt-2 flex-shrink-0" />
+                    <span>Certification-ready skills across 15+ enterprise technologies</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="font-montserrat font-bold text-xl md:text-2xl text-[#DFA236] mb-4 flex items-center gap-3">
+                  <span className="text-2xl">🏢</span>
+                  Organization Benefits
+                </h3>
+                <ul className="space-y-3 text-gray-300 font-inter text-sm md:text-base">
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-[#DFA236] rounded-full mt-2 flex-shrink-0" />
+                    <span>Access job-ready professionals trained in your exact tech stack</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-[#DFA236] rounded-full mt-2 flex-shrink-0" />
+                    <span>Reduce onboarding costs by 40% with pre-trained talent pipelines</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-[#DFA236] rounded-full mt-2 flex-shrink-0" />
+                    <span>Custom corporate training aligned with business objectives</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-[#DFA236] rounded-full mt-2 flex-shrink-0" />
+                    <span>Innovation lab partnerships for rapid prototyping and development</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="border-t border-white/10 pt-6">
+              <h4 className="font-montserrat font-bold text-lg md:text-xl text-white mb-4 text-center">
+                Comprehensive Curriculum Coverage
+              </h4>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                <div className="bg-white/5 rounded-lg p-3 border border-white/10 hover:border-[#DFA236]/50 transition-all">
+                  <div className="flex items-center gap-2 text-[#DFA236] justify-center">
+                    <div className="w-2 h-2 bg-[#DFA236] rounded-full" />
+                    <span className="font-inter font-semibold text-sm">Full-Stack Web Development</span>
+                  </div>
+                </div>
+                <div className="bg-white/5 rounded-lg p-3 border border-white/10 hover:border-[#DFA236]/50 transition-all">
+                  <div className="flex items-center gap-2 text-[#DFA236] justify-center">
+                    <div className="w-2 h-2 bg-[#DFA236] rounded-full" />
+                    <span className="font-inter font-semibold text-sm">Cloud Infrastructure</span>
+                  </div>
+                </div>
+                <div className="bg-white/5 rounded-lg p-3 border border-white/10 hover:border-[#DFA236]/50 transition-all">
+                  <div className="flex items-center gap-2 text-[#DFA236] justify-center">
+                    <div className="w-2 h-2 bg-[#DFA236] rounded-full" />
+                    <span className="font-inter font-semibold text-sm">Database Management</span>
+                  </div>
+                </div>
+                <div className="bg-white/5 rounded-lg p-3 border border-white/10 hover:border-[#DFA236]/50 transition-all">
+                  <div className="flex items-center gap-2 text-[#DFA236] justify-center">
+                    <div className="w-2 h-2 bg-[#DFA236] rounded-full" />
+                    <span className="font-inter font-semibold text-sm">AI & Automation</span>
+                  </div>
+                </div>
+                <div className="bg-white/5 rounded-lg p-3 border border-white/10 hover:border-[#DFA236]/50 transition-all">
+                  <div className="flex items-center gap-2 text-[#DFA236] justify-center">
+                    <div className="w-2 h-2 bg-[#DFA236] rounded-full" />
+                    <span className="font-inter font-semibold text-sm">Video Production</span>
+                  </div>
+                </div>
+                <div className="bg-white/5 rounded-lg p-3 border border-white/10 hover:border-[#DFA236]/50 transition-all">
+                  <div className="flex items-center gap-2 text-[#DFA236] justify-center">
+                    <div className="w-2 h-2 bg-[#DFA236] rounded-full" />
+                    <span className="font-inter font-semibold text-sm">UI/UX Design</span>
+                  </div>
+                </div>
+                <div className="bg-white/5 rounded-lg p-3 border border-white/10 hover:border-[#DFA236]/50 transition-all">
+                  <div className="flex items-center gap-2 text-[#DFA236] justify-center">
+                    <div className="w-2 h-2 bg-[#DFA236] rounded-full" />
+                    <span className="font-inter font-semibold text-sm">DevOps & Deployment</span>
+                  </div>
+                </div>
+                <div className="bg-white/5 rounded-lg p-3 border border-white/10 hover:border-[#DFA236]/50 transition-all">
+                  <div className="flex items-center gap-2 text-[#DFA236] justify-center">
+                    <div className="w-2 h-2 bg-[#DFA236] rounded-full" />
+                    <span className="font-inter font-semibold text-sm">Version Control</span>
+                  </div>
                 </div>
               </div>
-              <div className="bg-white/5 rounded-lg p-3 border border-white/10">
-                <div className="flex items-center gap-2 text-[#DFA236] justify-center">
-                  <div className="w-2 h-2 bg-[#DFA236] rounded-full" />
-                  <span className="font-inter font-semibold">Cloud Infrastructure</span>
-                </div>
-              </div>
-              <div className="bg-white/5 rounded-lg p-3 border border-white/10">
-                <div className="flex items-center gap-2 text-[#DFA236] justify-center">
-                  <div className="w-2 h-2 bg-[#DFA236] rounded-full" />
-                  <span className="font-inter font-semibold">Video Production</span>
-                </div>
-              </div>
-              <div className="bg-white/5 rounded-lg p-3 border border-white/10">
-                <div className="flex items-center gap-2 text-[#DFA236] justify-center">
-                  <div className="w-2 h-2 bg-[#DFA236] rounded-full" />
-                  <span className="font-inter font-semibold">AI Automation</span>
-                </div>
-              </div>
+            </div>
+
+            <div className="mt-8 text-center">
+              <p className="font-inter text-sm md:text-base text-gray-400 italic">
+                Technologies include: React, Next.js, TypeScript, Node.js, Python, TailwindCSS, PostgreSQL, MongoDB, Supabase, AWS, Docker, Git, Figma, DaVinci Resolve, and AI Prompt Engineering
+              </p>
             </div>
           </motion.div>
       </div>
