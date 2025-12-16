@@ -474,23 +474,7 @@ function PartnersSection() {
                         {tech.description}
                       </p>
                       
-                      <div className="grid grid-cols-1 md:grid-cols-3 gap-3 max-w-3xl mx-auto">
-                        <div className="bg-white/5 rounded-lg p-3 border border-white/10 hover:border-[#DFA236] transition-colors">
-                          <p className="font-inter text-xs md:text-sm text-gray-300">
-                            <span className="text-[#DFA236] font-bold">Youth Training</span><br/>12-week cohort program
-                          </p>
-                        </div>
-                        <div className="bg-white/5 rounded-lg p-3 border border-white/10 hover:border-[#DFA236] transition-colors">
-                          <p className="font-inter text-xs md:text-sm text-gray-300">
-                            <span className="text-[#DFA236] font-bold">Corporate Ready</span><br/>Job-ready from day one
-                          </p>
-                        </div>
-                        <div className="bg-white/5 rounded-lg p-3 border border-white/10 hover:border-[#DFA236] transition-colors">
-                          <p className="font-inter text-xs md:text-sm text-gray-300">
-                            <span className="text-[#DFA236] font-bold">Real Projects</span><br/>Portfolio-building work
-                          </p>
-                        </div>
-                      </div>
+
                     </div>
                   </div>
                 </motion.div>
