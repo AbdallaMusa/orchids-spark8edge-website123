@@ -155,7 +155,7 @@ const ScrollytellingSection = memo(function ScrollytellingSection() {
         <div className="relative">
           <div className="overflow-hidden">
             <motion.div
-              className="flex transition-transform duration-700 ease-in-out"
+              className="flex transition-transform duration-700 ease-in-out will-change-transform"
               style={{ transform: `translateX(-${activeIndex * 100}%)` }}
             >
               {SCROLLYTELLING_STEPS.map((step, index) => (
