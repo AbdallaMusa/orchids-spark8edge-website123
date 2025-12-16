@@ -7,6 +7,18 @@ import { Footer } from "@/components/Footer";
 import { useState, useEffect, memo, useMemo } from "react";
 import Image from "next/image";
 
+import dynamic from "next/dynamic";
+
+const DynamicPartnersSection = dynamic(() => Promise.resolve(PartnersSection), {
+  loading: () => <div className="min-h-screen w-full bg-gradient-to-br from-[#040F2D] via-[#040F2D] to-[#0A1A3F] flex items-center justify-center"><div className="text-white">Loading...</div></div>,
+  ssr: true
+});
+
+const DynamicDualCTASection = dynamic(() => Promise.resolve(DualCTASection), {
+  loading: () => <div className="h-screen w-full flex items-center justify-center"><div>Loading...</div></div>,
+  ssr: true
+});
+
 export default function AboutUs() {
   return (
     <>
@@ -15,8 +27,8 @@ export default function AboutUs() {
         <CinematicHeroSection />
         <ScrollytellingSection />
         <ArchitectsSection />
-        <PartnersSection />
-        <DualCTASection />
+        <DynamicPartnersSection />
+        <DynamicDualCTASection />
         <Footer />
       </main>
     </>
