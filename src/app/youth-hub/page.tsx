@@ -669,12 +669,21 @@ function IntakeFormSection() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setError("");
     const form = e.currentTarget;
-    
-    const formData = new FormData(form);
-    formData.set("whatsapp", `${selectedCountry}${phoneNumber}`);
+
+    if (!executeRecaptcha) {
+      setError("reCAPTCHA not available. Please try again.");
+      return;
+    }
     
     try {
+      const token = await executeRecaptcha("youth_form");
+      
+      const formData = new FormData(form);
+      formData.set("whatsapp", `${selectedCountry}${phoneNumber}`);
+      formData.append("recaptcha_token", token);
+      
       await fetch("https://formspree.io/f/mnneyzqa", {
         method: "POST",
         body: formData,
@@ -693,6 +702,7 @@ function IntakeFormSection() {
       }, 3000);
     } catch (error) {
       console.error("Form submission error:", error);
+      setError("Submission failed. Please try again.");
     }
   };
 
