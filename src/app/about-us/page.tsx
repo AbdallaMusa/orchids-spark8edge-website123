@@ -78,18 +78,12 @@ const CinematicHeroSection = memo(function CinematicHeroSection() {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="flex flex-wrap items-center justify-center gap-4 md:gap-8 text-sm md:text-base"
         >
-          <div className="flex items-center gap-2 text-white">
-            <div className="w-2 h-2 bg-[#DFA236] rounded-full" />
-            <span className="font-inter">Youth Development Programs</span>
-          </div>
-          <div className="flex items-center gap-2 text-white">
-            <div className="w-2 h-2 bg-[#DFA236] rounded-full" />
-            <span className="font-inter">Corporate Training Solutions</span>
-          </div>
-          <div className="flex items-center gap-2 text-white">
-            <div className="w-2 h-2 bg-[#DFA236] rounded-full" />
-            <span className="font-inter">Talent Recruitment Services</span>
-          </div>
+          {HERO_FEATURES.map((feature) => (
+            <div key={feature.label} className="flex items-center gap-2 text-white">
+              <div className="w-2 h-2 bg-[#DFA236] rounded-full" />
+              <span className="font-inter">{feature.label}</span>
+            </div>
+          ))}
         </motion.div>
       </div>
     </section>
