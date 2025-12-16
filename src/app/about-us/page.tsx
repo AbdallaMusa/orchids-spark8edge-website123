@@ -290,49 +290,88 @@ function ArchitectsSection() {
 }
 
 function PartnersSection() {
-  const partners = [
-    "MICROSOFT", "GOOGLE", "AWS", "STRIPE", "FIGMA", "NOTION",
-    "SLACK", "ZOOM", "HUBSPOT", "SALESFORCE"
+  const technologies = [
+    { name: "React", category: "Frontend Framework" },
+    { name: "Next.js", category: "Web Development" },
+    { name: "TypeScript", category: "Programming Language" },
+    { name: "Python", category: "Backend Development" },
+    { name: "Node.js", category: "Runtime Environment" },
+    { name: "TailwindCSS", category: "UI Framework" },
+    { name: "PostgreSQL", category: "Database" },
+    { name: "MongoDB", category: "Database" },
+    { name: "AWS", category: "Cloud Platform" },
+    { name: "Docker", category: "DevOps" },
+    { name: "Git", category: "Version Control" },
+    { name: "Figma", category: "Design Tool" }
   ];
 
   return (
-    <section className="h-screen w-full bg-[#F4F4F9] flex items-center justify-center px-6 overflow-hidden">
-      <div className="w-full">
+    <section className="min-h-screen w-full bg-gradient-to-br from-[#040F2D] via-[#040F2D] to-[#0A1A3F] flex items-center justify-center px-6 py-16 md:py-24 overflow-hidden">
+      <div className="max-w-7xl mx-auto w-full">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="text-center mb-12 md:mb-16"
         >
-          <h2 className="font-montserrat font-extrabold text-3xl md:text-4xl lg:text-5xl text-[#040F2D] uppercase">
-            Powered By Partnerships.
+          <h2 className="font-montserrat font-extrabold text-3xl md:text-4xl lg:text-5xl text-white mb-4">
+            Technology Stack We Master
           </h2>
+          <p className="font-inter text-base md:text-lg text-gray-300 max-w-3xl mx-auto mb-8 md:mb-12">
+            Empowering youth with industry-leading tools and technologies. Our comprehensive training programs cover modern web development, cloud computing, databases, and design systems used by top corporations worldwide.
+          </p>
         </motion.div>
 
-        <div className="relative">
-          <div className="flex overflow-hidden">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 md:mb-16">
+          {technologies.map((tech, index) => (
             <motion.div
-              animate={{ x: [0, -1920] }}
-              transition={{
-                duration: 30,
-                repeat: Infinity,
-                ease: "linear",
-              }}
-              className="flex gap-8 md:gap-12 py-4 md:py-8"
+              key={tech.name}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.05, duration: 0.5 }}
+              className="bg-white/5 backdrop-blur-sm rounded-lg p-6 border border-[#DFA236]/20 hover:border-[#DFA236] hover:bg-white/10 transition-all duration-300 group"
             >
-              {[...partners, ...partners, ...partners].map((partner, index) => (
-                <div
-                  key={index}
-                  className="flex-shrink-0 px-8 py-4 md:px-12 md:py-8 bg-white rounded-lg border-2 border-[#040F2D] min-w-[200px] md:min-w-[250px] flex items-center justify-center"
-                >
-                  <span className="font-montserrat font-bold text-lg md:text-xl lg:text-2xl text-[#040F2D] uppercase whitespace-nowrap">
-                    {partner}
-                  </span>
-                </div>
-              ))}
+              <div className="flex items-center justify-between mb-3">
+                <h3 className="font-montserrat font-bold text-xl text-white group-hover:text-[#DFA236] transition-colors">
+                  {tech.name}
+                </h3>
+                <div className="w-2 h-2 bg-[#DFA236] rounded-full opacity-60 group-hover:opacity-100 group-hover:scale-150 transition-all" />
+              </div>
+              <p className="font-inter text-sm text-gray-400 uppercase tracking-wider">
+                {tech.category}
+              </p>
             </motion.div>
-          </div>
+          ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="bg-[#DFA236]/10 border-2 border-[#DFA236]/30 rounded-xl p-8 md:p-10 text-center"
+        >
+          <h3 className="font-montserrat font-bold text-2xl md:text-3xl text-white mb-4">
+            Building Future-Ready Professionals
+          </h3>
+          <p className="font-inter text-base md:text-lg text-gray-300 max-w-4xl mx-auto mb-6">
+            Our youth training programs focus on practical, hands-on experience with enterprise-grade technologies. Organizations partnering with Spark8Edge gain access to professionals trained in the exact tools and frameworks they use daily, reducing onboarding time and accelerating productivity.
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6 text-sm md:text-base">
+            <div className="flex items-center gap-2 text-[#DFA236]">
+              <div className="w-2 h-2 bg-[#DFA236] rounded-full" />
+              <span className="font-inter font-semibold">Industry-Standard Tools</span>
+            </div>
+            <div className="flex items-center gap-2 text-[#DFA236]">
+              <div className="w-2 h-2 bg-[#DFA236] rounded-full" />
+              <span className="font-inter font-semibold">Real-World Projects</span>
+            </div>
+            <div className="flex items-center gap-2 text-[#DFA236]">
+              <div className="w-2 h-2 bg-[#DFA236] rounded-full" />
+              <span className="font-inter font-semibold">Certification Ready</span>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
