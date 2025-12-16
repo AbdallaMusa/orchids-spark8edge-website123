@@ -15,17 +15,17 @@ export default function GoogleReCaptchaWrapper({
     return <>{children}</>;
   }
 
-  return (
-    <GoogleReCaptchaProvider 
-      reCaptchaKey={recaptchaKey}
-      container={{
-        parameters: {
-          badge: 'bottomright',
-          theme: 'light'
-        }
-      }}
-    >
-      {children}
-    </GoogleReCaptchaProvider>
-  );
+    return (
+      <GoogleReCaptchaProvider 
+        reCaptchaKey={recaptchaKey}
+        container={{
+          parameters: {
+            badge: 'inline',
+            theme: 'light'
+          }
+        }}
+      >
+        {children}
+      </GoogleReCaptchaProvider>
+    );
 }
