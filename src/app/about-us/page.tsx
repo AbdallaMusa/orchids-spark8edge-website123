@@ -387,9 +387,43 @@ const ArchitectsSection = memo(function ArchitectsSection() {
       </div>
     </section>
   );
-}
+});
 
-function PartnersSection() {
+const TECHNOLOGIES_DATA = [
+  { name: "React", category: "Frontend Framework", description: "Component-based UI development for modern web applications" },
+  { name: "Next.js", category: "Full-Stack Framework", description: "Server-side rendering & API routes for production apps" },
+  { name: "TypeScript", category: "Programming Language", description: "Type-safe JavaScript for enterprise-grade codebases" },
+  { name: "Python", category: "Backend & AI", description: "AI automation, data analysis, and backend development" },
+  { name: "Node.js", category: "Backend Runtime", description: "Scalable server-side JavaScript for APIs & microservices" },
+  { name: "TailwindCSS", category: "UI Framework", description: "Utility-first CSS for rapid, responsive design systems" },
+  { name: "PostgreSQL", category: "Database", description: "Relational database management for complex data structures" },
+  { name: "MongoDB", category: "NoSQL Database", description: "Flexible document storage for modern applications" },
+  { name: "Supabase", category: "Backend Platform", description: "Authentication, storage & real-time database infrastructure" },
+  { name: "AWS", category: "Cloud Infrastructure", description: "Enterprise cloud computing & deployment solutions" },
+  { name: "Docker", category: "DevOps", description: "Containerization for consistent deployment environments" },
+  { name: "Git", category: "Version Control", description: "Collaborative code management & deployment workflows" },
+  { name: "Figma", category: "Design Tool", description: "Collaborative interface design & prototyping platform" },
+  { name: "DaVinci Resolve", category: "Video Production", description: "Professional color grading & video editing software" },
+  { name: "Prompt Engineering", category: "AI Skills", description: "LLM control, AI agents & workflow automation" },
+  { name: "REST APIs", category: "Backend Development", description: "API design, integration & third-party service connections" }
+] as const;
+
+const CURRICULUM_CATEGORIES = [
+  "Full-Stack Web Development",
+  "Cloud Infrastructure & DevOps",
+  "Database Management & APIs",
+  "AI & Prompt Engineering",
+  "Video Production & Editing",
+  "UI/UX Design & Prototyping",
+  "Content Creation & Storytelling",
+  "Digital Marketing & SEO",
+  "Motion Graphics & Animation",
+  "Project Management & Agile",
+  "Data Analysis & Visualization",
+  "Brand Strategy & Identity"
+] as const;
+
+const PartnersSection = memo(function PartnersSection() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [progress, setProgress] = useState(0);
