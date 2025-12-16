@@ -544,9 +544,9 @@ const PartnersSection = memo(function PartnersSection() {
       </div>
     </section>
   );
-}
+});
 
-function DualCTASection() {
+const DualCTASection = memo(function DualCTASection() {
   return (
     <section className="h-screen w-full flex flex-col md:flex-row">
       <motion.div
