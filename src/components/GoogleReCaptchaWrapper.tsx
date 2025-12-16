@@ -16,7 +16,15 @@ export default function GoogleReCaptchaWrapper({
   }
 
   return (
-    <GoogleReCaptchaProvider reCaptchaKey={recaptchaKey}>
+    <GoogleReCaptchaProvider 
+      reCaptchaKey={recaptchaKey}
+      container={{
+        parameters: {
+          badge: 'bottomright',
+          theme: 'light'
+        }
+      }}
+    >
       {children}
     </GoogleReCaptchaProvider>
   );
