@@ -361,13 +361,13 @@ function ConsultationFormSection() {
         const formData = new FormData(form);
         formData.append("recaptcha_token", token);
         
-        await fetch("https://formspree.io/f/YOUR_FORMSPREE_ENDPOINT", {
-          method: "POST",
-          body: formData,
-          headers: {
-            'Accept': 'application/json'
-          }
-        });
+          await fetch("https://formspree.io/f/mnneyzqa", {
+            method: "POST",
+            body: formData,
+            headers: {
+              'Accept': 'application/json'
+            }
+          });
         
         setSubmitted(true);
         form.reset();
