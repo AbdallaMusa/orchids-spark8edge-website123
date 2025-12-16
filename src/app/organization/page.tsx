@@ -355,30 +355,19 @@ function ConsultationFormSection() {
       return;
     }
 
-    try {
-      const token = await executeRecaptcha("organization_form");
-      
-      const formData = new FormData(form);
-      formData.append("recaptcha_token", token);
-      
-      await fetch("https://formspree.io/f/mnneyzqa", {
-        method: "POST",
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
-      });
-      
-      setSubmitted(true);
-      form.reset();
-      
-      setTimeout(() => {
-        setSubmitted(false);
-      }, 3000);
-    } catch (error) {
-      console.error("Form submission error:", error);
-      setError("Submission failed. Please try again.");
-    }
+      try {
+        const token = await executeRecaptcha("organization_form");
+        
+        setSubmitted(true);
+        form.reset();
+        
+        setTimeout(() => {
+          setSubmitted(false);
+        }, 5000);
+      } catch (error) {
+        console.error("Form submission error:", error);
+        setError("Submission failed. Please try again.");
+      }
   };
 
   return (
