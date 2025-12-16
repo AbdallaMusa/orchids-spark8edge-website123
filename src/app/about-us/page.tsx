@@ -302,7 +302,7 @@ const ArchitectsSection = memo(function ArchitectsSection() {
                   alt="Vanessa Mwando - Founder and CEO of Spark8Edge, youth empowerment and corporate training expert"
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
-                  className={`object-cover transition-all duration-700 ${
+                  className={`object-cover transition-all duration-700 will-change-transform ${
                     isHovered ? "scale-105" : "scale-100"
                   }`}
                   loading="lazy"
