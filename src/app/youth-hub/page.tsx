@@ -441,8 +441,10 @@ function CreativeSpaceSection() {
 
 function IntakeFormSection() {
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState("");
   const [selectedCountry, setSelectedCountry] = useState("+254");
   const [phoneNumber, setPhoneNumber] = useState("");
+  const { executeRecaptcha } = useGoogleReCaptcha();
 
   const countryPhoneData: Record<string, { digits: number; placeholder: string; pattern: string }> = {
     "+1": { digits: 10, placeholder: "2025551234", pattern: "[0-9]{10}" },
