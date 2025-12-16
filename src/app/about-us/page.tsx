@@ -428,19 +428,20 @@ function PartnersSection() {
   return (
     <section className="min-h-screen w-full bg-gradient-to-br from-[#040F2D] via-[#040F2D] to-[#0A1A3F] flex items-center justify-center px-6 py-16 md:py-24 overflow-hidden">
       <div className="max-w-7xl mx-auto w-full">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-12 md:mb-16"
-        >
-          <h2 className="font-montserrat font-extrabold text-3xl md:text-4xl lg:text-5xl text-white mb-4">
-            Technology Stack We Master
-          </h2>
-          <p className="font-inter text-base md:text-lg text-gray-300 max-w-3xl mx-auto mb-8 md:mb-12">
-            Empowering youth with industry-leading tools and technologies. Our comprehensive training programs cover modern web development, cloud computing, databases, and design systems used by top corporations worldwide.
-          </p>
-        </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12 md:mb-16"
+          >
+            <h2 className="font-montserrat font-extrabold text-3xl md:text-4xl lg:text-5xl text-white mb-4">
+              Comprehensive Technology Curriculum
+            </h2>
+            <p className="font-inter text-base md:text-lg text-gray-300 max-w-4xl mx-auto mb-8 md:mb-12">
+              <strong className="text-[#DFA236]">Youth Hub Cohorts</strong> master full-stack development, AI automation, and creative production through 12-week intensive programs. 
+              <strong className="text-white"> Organizations</strong> benefit from professionals trained in modern web frameworks, cloud infrastructure, database management, video production, and AI-powered workflows—ready to deliver impact from day one with reduced onboarding costs.
+            </p>
+          </motion.div>
 
         <div className="relative mb-12 md:mb-16">
           <div className="overflow-hidden">
