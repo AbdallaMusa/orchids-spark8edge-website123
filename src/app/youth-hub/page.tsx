@@ -6,6 +6,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Video, Brain, Palette, ArrowDown, Users, Briefcase, Award, Sparkles, Zap, Target, TrendingUp, Clock, MapPin, CheckCircle2, Star, DollarSign, Rocket } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 
 export default function YouthHub() {
   return (
