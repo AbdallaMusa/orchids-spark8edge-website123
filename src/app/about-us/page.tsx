@@ -596,4 +596,4 @@ const DualCTASection = memo(function DualCTASection() {
       </motion.div>
     </section>
   );
-}
+});
