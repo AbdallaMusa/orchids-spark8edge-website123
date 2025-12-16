@@ -386,6 +386,10 @@ function ArchitectsSection() {
 }
 
 function PartnersSection() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const [progress, setProgress] = useState(0);
+
   const technologies = [
     { name: "React", category: "Frontend Framework" },
     { name: "Next.js", category: "Web Development" },
@@ -400,6 +404,22 @@ function PartnersSection() {
     { name: "Git", category: "Version Control" },
     { name: "Figma", category: "Design Tool" }
   ];
+
+  useEffect(() => {
+    if (!isPaused) {
+      const progressInterval = setInterval(() => {
+        setProgress((prev) => {
+          if (prev >= 100) {
+            setActiveIndex((current) => (current + 1) % technologies.length);
+            return 0;
+          }
+          return prev + 1;
+        });
+      }, 60);
+
+      return () => clearInterval(progressInterval);
+    }
+  }, [isPaused, technologies.length]);
 
   return (
     <section className="min-h-screen w-full bg-gradient-to-br from-[#040F2D] via-[#040F2D] to-[#0A1A3F] flex items-center justify-center px-6 py-16 md:py-24 overflow-hidden">
@@ -418,27 +438,125 @@ function PartnersSection() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 md:mb-16">
-          {technologies.map((tech, index) => (
+        <div className="relative mb-12 md:mb-16">
+          <div className="overflow-hidden">
             <motion.div
-              key={tech.name}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.05, duration: 0.5 }}
-              className="bg-white/5 backdrop-blur-sm rounded-lg p-6 border border-[#DFA236]/20 hover:border-[#DFA236] hover:bg-white/10 transition-all duration-300 group"
+              className="flex transition-transform duration-700 ease-in-out"
+              style={{ transform: `translateX(-${activeIndex * 100}%)` }}
             >
-              <div className="flex items-center justify-between mb-3">
-                <h3 className="font-montserrat font-bold text-xl text-white group-hover:text-[#DFA236] transition-colors">
-                  {tech.name}
-                </h3>
-                <div className="w-2 h-2 bg-[#DFA236] rounded-full opacity-60 group-hover:opacity-100 group-hover:scale-150 transition-all" />
-              </div>
-              <p className="font-inter text-sm text-gray-400 uppercase tracking-wider">
-                {tech.category}
-              </p>
+              {technologies.map((tech, index) => (
+                <motion.div
+                  key={tech.name}
+                  className="w-full flex-shrink-0 px-4"
+                  onMouseEnter={() => setIsPaused(true)}
+                  onMouseLeave={() => setIsPaused(false)}
+                >
+                  <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-12 md:p-16 border-2 border-[#DFA236]/30 hover:border-[#DFA236] hover:bg-white/10 transition-all duration-500 max-w-4xl mx-auto">
+                    <div className="text-center">
+                      <div className="inline-flex items-center justify-center w-20 h-20 md:w-24 md:h-24 bg-[#DFA236]/20 rounded-full mb-6 md:mb-8">
+                        <div className="w-3 h-3 bg-[#DFA236] rounded-full animate-pulse" />
+                      </div>
+                      
+                      <h3 className="font-montserrat font-extrabold text-4xl md:text-5xl lg:text-6xl text-white mb-4">
+                        {tech.name}
+                      </h3>
+                      
+                      <p className="font-inter text-base md:text-lg text-[#DFA236] uppercase tracking-widest font-semibold mb-8 md:mb-12">
+                        {tech.category}
+                      </p>
+                      
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto">
+                        <div className="bg-white/5 rounded-lg p-4 border border-white/10">
+                          <p className="font-inter text-sm text-gray-300">
+                            <span className="text-[#DFA236] font-bold">Industry-Standard</span> tools used by top corporations
+                          </p>
+                        </div>
+                        <div className="bg-white/5 rounded-lg p-4 border border-white/10">
+                          <p className="font-inter text-sm text-gray-300">
+                            <span className="text-[#DFA236] font-bold">Hands-On</span> training with real-world projects
+                          </p>
+                        </div>
+                        <div className="bg-white/5 rounded-lg p-4 border border-white/10">
+                          <p className="font-inter text-sm text-gray-300">
+                            <span className="text-[#DFA236] font-bold">Certification</span> ready curriculum
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
             </motion.div>
-          ))}
+          </div>
+
+          <div className="flex items-center justify-center gap-2 mt-8 flex-wrap">
+            {technologies.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => {
+                  setActiveIndex(index);
+                  setProgress(0);
+                }}
+                className="group relative"
+                aria-label={`Go to technology ${index + 1}`}
+              >
+                <div className={`w-10 h-2 rounded-full transition-all duration-300 ${
+                  index === activeIndex ? "bg-[#DFA236]" : "bg-white/20"
+                }`}>
+                  {index === activeIndex && (
+                    <motion.div
+                      className="h-full bg-[#DFA236] rounded-full"
+                      style={{ width: `${progress}%` }}
+                    />
+                  )}
+                </div>
+              </button>
+            ))}
+          </div>
+
+          <div className="flex items-center justify-center mt-6 gap-4">
+            <button
+              onClick={() => {
+                setActiveIndex((prev) => (prev === 0 ? technologies.length - 1 : prev - 1));
+                setProgress(0);
+              }}
+              className="p-3 rounded-full bg-white/10 text-white hover:bg-[#DFA236] hover:text-[#040F2D] transition-all duration-300"
+              aria-label="Previous technology"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+
+            <button
+              onClick={() => setIsPaused(!isPaused)}
+              className="p-3 rounded-full bg-white/10 text-white hover:bg-[#DFA236] hover:text-[#040F2D] transition-all duration-300"
+              aria-label={isPaused ? "Resume autoplay" : "Pause autoplay"}
+            >
+              {isPaused ? (
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              ) : (
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z" />
+                </svg>
+              )}
+            </button>
+
+            <button
+              onClick={() => {
+                setActiveIndex((prev) => (prev + 1) % technologies.length);
+                setProgress(0);
+              }}
+              className="p-3 rounded-full bg-white/10 text-white hover:bg-[#DFA236] hover:text-[#040F2D] transition-all duration-300"
+              aria-label="Next technology"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
         </div>
 
         <motion.div
