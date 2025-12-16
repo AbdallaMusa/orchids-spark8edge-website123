@@ -23,7 +23,13 @@ export default function AboutUs() {
   );
 }
 
-function CinematicHeroSection() {
+const HERO_FEATURES = [
+  { label: "Youth Development Programs" },
+  { label: "Corporate Training Solutions" },
+  { label: "Talent Recruitment Services" }
+] as const;
+
+const CinematicHeroSection = memo(function CinematicHeroSection() {
   return (
     <section
       className="min-h-screen w-full flex items-center justify-center relative overflow-hidden py-20 md:py-32"
