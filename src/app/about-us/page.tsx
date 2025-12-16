@@ -124,7 +124,7 @@ const ScrollytellingSection = memo(function ScrollytellingSection() {
       const progressInterval = setInterval(() => {
         setProgress((prev) => {
           if (prev >= 100) {
-            setActiveIndex((current) => (current + 1) % steps.length);
+            setActiveIndex((current) => (current + 1) % SCROLLYTELLING_STEPS.length);
             return 0;
           }
           return prev + 1;
@@ -133,7 +133,7 @@ const ScrollytellingSection = memo(function ScrollytellingSection() {
 
       return () => clearInterval(progressInterval);
     }
-  }, [isPaused, steps.length]);
+  }, [isPaused]);
 
   return (
     <section className="min-h-screen w-full bg-[#F4F4F9] flex items-center justify-center px-6 py-16 md:py-24">
