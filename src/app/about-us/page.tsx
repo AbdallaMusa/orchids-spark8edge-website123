@@ -119,30 +119,6 @@ const ScrollytellingSection = memo(function ScrollytellingSection() {
   const [isPaused, setIsPaused] = useState(false);
   const [progress, setProgress] = useState(0);
 
-  const steps = [
-    {
-      number: "01",
-      title: "The Challenge",
-      subtitle: "Youth Unemployment Crisis",
-      description: "Despite 60% youth unemployment in Nairobi, technology companies struggle to fill critical technical positions. This talent gap represents both a social challenge and a business opportunity.",
-      icon: "⚠️",
-    },
-    {
-      number: "02",
-      title: "The Barrier",
-      subtitle: "Communication Disconnect",
-      description: "Organizations seek innovative talent but lack effective channels to reach, engage, and develop young professionals. Traditional recruitment methods fail to bridge this generational divide.",
-      icon: "🔌",
-    },
-    {
-      number: "03",
-      title: "Our Solution",
-      subtitle: "Dual-Impact Model",
-      description: "Spark8Edge transforms unemployed youth into skilled professionals while providing corporations with a pipeline of job-ready talent. Our training hub serves as an innovation laboratory for enterprise clients.",
-      icon: "⚡",
-    },
-  ];
-
   useEffect(() => {
     if (!isPaused) {
       const progressInterval = setInterval(() => {
