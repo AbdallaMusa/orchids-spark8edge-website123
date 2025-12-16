@@ -473,6 +473,16 @@ function ConsultationFormSection() {
             Submit Brief
           </button>
 
+          {error && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="mt-3 p-3 bg-red-100 border border-red-400 text-red-700 rounded-lg text-center font-inter text-sm"
+            >
+              {error}
+            </motion.div>
+          )}
+
           {submitted && (
             <motion.div
               initial={{ opacity: 0, y: -10 }}
