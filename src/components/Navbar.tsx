@@ -29,6 +29,12 @@ export function Navbar() {
 
           <div className="hidden md:flex items-center gap-8">
             <Link
+              href="/"
+              className="font-['Montserrat'] font-semibold text-sm uppercase tracking-wider text-[#6D8299] hover:text-[#040F2D] transition-colors"
+            >
+              Home
+            </Link>
+            <Link
               href="/youth-hub"
               className="font-['Montserrat'] font-semibold text-sm uppercase tracking-wider text-[#6D8299] hover:text-[#040F2D] transition-colors"
             >
@@ -81,6 +87,13 @@ export function Navbar() {
             className="md:hidden bg-white border-t border-[#E5E7EB]"
           >
             <div className="px-4 py-6 space-y-4">
+              <Link
+                href="/"
+                onClick={() => setIsOpen(false)}
+                className="block font-['Montserrat'] font-semibold text-sm uppercase tracking-wider text-[#6D8299] hover:text-[#040F2D]"
+              >
+                Home
+              </Link>
               <Link
                 href="/youth-hub"
                 onClick={() => setIsOpen(false)}
