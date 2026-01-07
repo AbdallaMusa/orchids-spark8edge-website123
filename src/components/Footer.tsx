@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Mail, MapPin, ArrowUpRight } from "lucide-react";
 
 export function Footer() {
@@ -13,12 +14,21 @@ export function Footer() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-          <div>
-            <h3 className="font-montserrat font-extrabold text-2xl mb-4 text-[#DFA236] uppercase tracking-wider">
-              SPARK8EDGE
-            </h3>
+          <div className="space-y-6">
+            <Link href="/" className="flex items-center gap-3 group">
+              <Image
+                src="/icons.png"
+                alt="SPARK8EDGE Logo"
+                width={50}
+                height={50}
+                className="transition-transform group-hover:scale-105"
+              />
+              <span className="font-montserrat font-extrabold text-2xl text-[#DFA236] uppercase tracking-wider">
+                SPARK8EDGE
+              </span>
+            </Link>
             <p className="text-[#9DB3CC] text-sm leading-relaxed">
-              The bridge between talent and opportunity. Empowering youth and transforming organizations.
+              Spark8Edge connects Africa&apos;s creative talent with global opportunities through elite AI training and strategic brand intelligence. Spark your future, ignite your brand.
             </p>
           </div>
 
@@ -98,8 +108,8 @@ export function Footer() {
             <p className="text-center text-[#9DB3CC] text-sm">
               © 2025 Spark8Edge. All rights reserved.
             </p>
-            <p className="text-center text-[#DFA236] text-xs font-montserrat uppercase tracking-wider">
-              Building Africa's Digital Future
+            <p className="text-center text-[#DFA236] text-xs font-montserrat uppercase tracking-wider font-semibold">
+              Spark your future, ignite your brand
             </p>
           </div>
         </div>

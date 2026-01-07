@@ -5,7 +5,6 @@ import { VisualEditsMessenger } from "orchids-visual-edits";
 import ErrorReporter from "@/components/ErrorReporter";
 import Script from "next/script";
 import GoogleReCaptchaWrapper from "@/components/GoogleReCaptchaWrapper";
-import { Analytics } from "@vercel/analytics/react";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -38,19 +37,16 @@ export default function RootLayout({
       <body
         className={`${montserrat.variable} ${inter.variable} antialiased`}
       >
-        {/* Optimized: Moved low-priority scripts to lazyOnload to speed up initial page load */}
         <Script
           id="orchids-browser-logs"
           src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/scripts/orchids-browser-logs.js"
-          strategy="lazyOnload"
+          strategy="afterInteractive"
           data-orchids-project-id="bbc2fcab-6b0f-4965-9297-67010a860184"
         />
-        
         <ErrorReporter />
-        
         <Script
           src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/scripts//route-messenger.js"
-          strategy="lazyOnload"
+          strategy="afterInteractive"
           data-target-origin="*"
           data-message-type="ROUTE_CHANGE"
           data-include-search-params="true"
@@ -58,15 +54,10 @@ export default function RootLayout({
           data-debug="true"
           data-custom-data='{"appName": "YourApp", "version": "1.0.0", "greeting": "hi"}'
         />
-
         <GoogleReCaptchaWrapper>
           {children}
         </GoogleReCaptchaWrapper>
-
         <VisualEditsMessenger />
-        
-        {/* Vercel Analytics Component */}
-        <Analytics />
       </body>
     </html>
   );
