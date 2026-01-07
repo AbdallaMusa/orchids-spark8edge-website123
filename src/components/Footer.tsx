@@ -13,14 +13,14 @@ export function Footer() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-          <div>
-            <h3 className="font-montserrat font-extrabold text-2xl mb-4 text-[#DFA236] uppercase tracking-wider">
-              SPARK8EDGE
-            </h3>
-            <p className="text-[#9DB3CC] text-sm leading-relaxed">
-              The bridge between talent and opportunity. Empowering youth and transforming organizations.
-            </p>
-          </div>
+            <div>
+              <h3 className="font-montserrat font-extrabold text-2xl mb-4 text-[#DFA236] uppercase tracking-wider">
+                SPARK8EDGE
+              </h3>
+              <p className="text-[#9DB3CC] text-sm leading-relaxed">
+                Spark8Edge is Kenya's leading innovation hub, bridging the gap between African creative talent and global opportunities through AI-driven training, strategic brand intelligence, and elite reputation management.
+              </p>
+            </div>
 
           <div>
             <h4 className="font-montserrat font-bold text-sm uppercase tracking-widest mb-6 text-white border-b-2 border-[#DFA236] pb-2 inline-block">
@@ -98,8 +98,8 @@ export function Footer() {
             <p className="text-center text-[#9DB3CC] text-sm">
               © 2025 Spark8Edge. All rights reserved.
             </p>
-            <p className="text-center text-[#DFA236] text-xs font-montserrat uppercase tracking-wider">
-              Building Africa's Digital Future
+            <p className="text-center text-[#DFA236] text-sm font-montserrat uppercase tracking-[0.2em] font-bold">
+              Spark your future, ignite your brand
             </p>
           </div>
         </div>

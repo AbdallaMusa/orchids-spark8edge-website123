@@ -19,12 +19,11 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "SPARK8EDGE | Spark your future, ignite your brand",
-  description: "Spark your future, ignite your brand. Spark8Edge connects Africa's creative talent with global opportunities through elite training and AI-powered corporate communications.",
+  title: "SPARK8EDGE",
+  description: "Spark8Edge connects Africa's creative talent with global opportunities through elite training and AI-powered corporate communications.",
   icons: {
-    icon: "/icons.png",
-    shortcut: "/icons.png",
-    apple: "/icons.png",
+    icon: "/icon.png",
+    apple: "/icon.png",
   },
 };
 
